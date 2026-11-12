@@ -7,13 +7,12 @@ from a simple YAML config file.
 
 from __future__ import annotations
 
-import os
 from datetime import datetime
 from pathlib import Path
 
 import yaml
 from reportlab.lib import colors
-from reportlab.lib.enums import TA_LEFT, TA_RIGHT, TA_CENTER
+from reportlab.lib.enums import TA_RIGHT
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import inch
@@ -293,10 +292,9 @@ def generate_markdown(cfg: dict, output_path: Path) -> None:
 """
 
     if inv.get("notes"):
-        md += f"\n### Notes\n\n{inv['notes'].strip()}\n"
+        md += "\n### Notes\n\n" + inv["notes"].strip() + "\n"
 
-    md += f"\n---\n*Generated {datetime.now().strftime('%Y-%m-%d %H:%M')}*
-"
+    md += "\n---\n*Generated " + datetime.now().strftime("%Y-%m-%d %H:%M") + "*\n"
 
     output_path.write_text(md, encoding="utf-8")
     print(f"✅ Markdown created: {output_path}")
