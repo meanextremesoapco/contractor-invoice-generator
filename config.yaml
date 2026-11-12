@@ -1,0 +1,42 @@
+# ============================================================
+# Contractor Invoice Generator - Configuration
+# Edit this file each month, then run: python generate_invoice.py
+# ============================================================
+
+contractor:
+  name: "Your Name / Business Name"
+  email: "you@example.com"
+  address: |
+    123 Main Street
+    Suite 100
+    City, ST 12345
+  phone: "+1 (555) 123-4567"
+
+client:
+  name: "Client Company Name"
+  email: "accounts@client.com"
+  address: |
+    456 Client Avenue
+    Floor 3
+    City, ST 67890
+
+invoice:
+  number_prefix: "INV"
+  currency: "USD"
+  payment_terms: "Net 30"
+  notes: |
+    Thank you for the opportunity to work with you this month.
+    Please remit payment within 30 days.
+    ACH details available upon request.
+
+period:
+  start: "2026-11-01"
+  end: "2026-11-30"
+  description: "Professional services - November 2026"
+
+# Choose ONE billing method
+billing:
+  type: "hourly"              # options: "hourly" or "fixed"
+  hourly_rate: 125.00
+  hours: 68.5
+  # fixed_amount: 8500.00     # uncomment + set type: fixed to use fixed fee
